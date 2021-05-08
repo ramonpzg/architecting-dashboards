@@ -10,7 +10,7 @@ Welcome to Dashboards 4 All, a PyCon 2021 tutorial where we will be learning abo
 
 1. Outline for the Tutorial
 2. Prerequisites
-3. Learning Outcomes and Why this Tutorial
+3. Goals/Learning Outcomes
 4. Setup
 5. Presentation (link below)
 6. Data
@@ -62,7 +62,7 @@ The time budgeted for this tutorial is about 3.5 hours including breaks. The tut
 
 
 
-## 1. Prerequisites (P) and Good To Have's (GTH)
+## 2. Prerequisites (P) and Good To Have's (GTH)
 
 - **(P)** Attendees for this tutorial are expected to be familiar with Python (1 year of coding). 
 - **(P)** Participants should be comfortable with loops, functions, lists comprehensions, and if-else statements.
@@ -72,40 +72,24 @@ The time budgeted for this tutorial is about 3.5 hours including breaks. The tut
 
 
 
+## 3. Goals/Learning Outcomes
 
-## 3a. Learning Outcomes
-
-It is okay to not understand absolutely everything in the tutorial, instead, I would like to challenge you to first, make sure you walk away with at least 2 new concepts from this lesson, and second, that you come back to it and go over the content you did not get the first time around.
+It is okay to not understand absolutely everything in the tutorial, instead, I would like to challenge you to first, make sure you walk away with at least 2 new concepts from this lesson, and second, that you come back to it and go over the content you did not get the first time around and reinforce your understanding of it.
 
 With that said, by the end of the tutorial you should be able to:
 
-1. Understand the data analytics cycle.
-2. Diffferentiate between small, medium and big datasets.
-3. Understand how to gather, clean, and process large amounts of data.
-4. Analyse and visualise large datasets.
-5. Have a canvas for a data analytics project you could showcase.
-6. Keep doing good things with data at scale. 😃
-
-
-
-## 3b. Why this Tutorial
-
-Have ever heard from experienced data professionals that only a small amount of data is needed in order to get started and create a few files worth of good/usuable code that can be extended later on to the full dataset? (a mouthful question, I know, stay with me). If so, these are probably right! But, what happens when your data is massive, tabular, and with a lot of text-based columns that may have one, two, or a thousand edge cases that you may not be able to identify/anticipate without having a look at the entire dataset? For those instances, we have some great tools that the python data science community has come up with and will help up take care of massive and messy datasets relatively fast.
-
-In this tutorial, we will explore how to tackle this issue of having a lot of data that does not fit into memory and needs to be cleaned and reshaped into form before we can extract meaningful insights from it.
-
-1. Although it is tailored towards beginners in this topic, this is not an introduction to Python. If you have never written a line of code, this is not the right tutorial for you, that's the one we had yesterday. :)
-2. This is not an Artificial Intelligence tutorial, that one is running right now as well. :)
-3. This is not a web scraping tutorial, although we will do some of that today.
-4. This is not a tutorial covering every feature of Dask. We will mainly use the Dataframe API to clean, process, and analyse tabular data.
+1. Introduce an accessible way to reproduce dashboards
+2. Help you find a process for looking at data visualizations and figure out a way to break them down and reproduce them
+3. Create static dashboards that you can share with friends and colleagues
+4. Create interactive dashboards that your users can use to see different stories from the data
 
 ## 4. Setup
 
 You should first make sure you have [Anaconda](https://www.anaconda.com/products/individual#download-section) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) installed. This will allow you to have most of the packages you will need for this tutorial already installed once you open up Jupyter Lab.
 
-Here are some of the ways in which you can get set up.
+Here are some of the ways in which you can get the setup for the tutorial ready.
 
-### 5.1 Option 1
+### 4.1 Option 1
 
 #### First Step
 
@@ -115,20 +99,25 @@ Open up your terminal and navigate to a directory of your choosing in your compu
  git clone https://github.com/ramonprz01/pycon21-dashboards-4-all.git
 ```
 
-Conversely, you can click on the green `downlowad` button at the top and donwload all files to your desired folder/directory.
+Conversely, you can click on the green `downlowad` button at the top and donwload all files to your desired folder/directory. Once you download it, unzip it and move on to the second step.
 
 #### Second Step
 
-To get all dependancies, packages and everything else that would be useful in this tutorial, you can recreate the environment with the following lines:
+To get all dependancies, packages and everything else that would be useful in this tutorial, you can recreate the environment by first going into the directory for today
 
 ```sh
 cd pycon21
+```
+
+and then running
+
+```sh
 conda env create -f environment.yml
 ```
 
 #### Third Step
 
-Then you will need to activate your environment using the following command, and then open up jupyter lab.
+Then you will need to activate your environment using the following command.
 
 ```sh
 conda activate pycon21
@@ -142,7 +131,9 @@ Open up Jupyter Lab and you should be ready to go.
 jupyter lab
 ```
 
-### 5.2 Option 2
+
+
+### 4.2 Option 2
 
 #### First Step
 
@@ -152,7 +143,13 @@ Download the repo using the big green button on the upper right.
 
 #### Second Step
 
-Open a Jupyter Lab session inside the folder you just downloaded. Conversely, open a Jupyter Lab session anywhere you'd like and navigate to the folder you just downloaded.
+Open a Jupyter Lab session inside the folder you just downloaded. You can do this through the Anaconda graphical user interface if you are on a Mac or Windows.
+
+```sh
+cd pycon21
+jupyter lab
+
+Conversely, open a Jupyter Lab session anywhere you'd like and navigate to the folder you just downloaded.
 
 #### Third Step
 
@@ -160,24 +157,52 @@ Open up a terminal inside of Jupyter Lab and run either of the following command
 
 ```sh
 ## one option
-pip install -U pandas numpy dask bokeh pyarrow parquet python-graphviz matplotlib altair scipy seaborn
+pip install -U pandas numpy dask bokeh pyarrow parquet matplotlib scipy seaborn holoviews geoviews panel geopandas
 
 ## another option
-conda install numpy pandas matplotlib scipy bokeh dask distributed -c conda-forge
-
+conda install pandas numpy dask bokeh pyarrow parquet matplotlib scipy seaborn holoviews geoviews panel geopandas -c conda-forge
 ```
 
-Great work! Now navigate to notebook 00 and open it.
+If you receive an error while trying to install all packages, follow the steps below.
+
+```sh
+## create an environment
+conda create --name my_env_name python=3.9 pip
+
+## activate your environment
+conda activate my_env_name
+
+## install some packages
+pip install -U pandas numpy dask bokeh pyarrow parquet matplotlib scipy seaborn geopandas
+
+## install the holoviz suite one by one
+conda install -c pyviz panel -y
+conda install -c pyviz holoviews -y
+conda install -c pyviz geoviews -y
+conda install datashader -y
+conda install -c ioam param -y
+conda install -c pyviz hvplot -y
+```
+
+Great work! Now navigate to notebook 01 and open it.
+
+
+
+## 5. Presentation
+
+Link to Presentation
+
+
 
 ## 6. Data
 
-For this tutorial, we will be using the following 3 datasets.
+For this tutorial, we will be using the following datasets.
 
 - Domain’s Melbourne Housing Market
 
 ![inside_airbnb](images/kaggle_melb_auctions.png)
 
-
+This dataset contains information about housing auctions from 2016 to 2017 in the metropolitan area of Melbourne, Victoria, Australia. The data was scraped from Domain, a popular properties solutions website.
 
 - Sydney Airbnb Data
 
@@ -185,41 +210,40 @@ For this tutorial, we will be using the following 3 datasets.
 
 We will be using Airbnb data collected by a scraping tool called [Inside Airbnb](http://insideairbnb.com/about.html). The tool periodically scrapes data from Airbnb and publishes it for free on its website.
 
-The data differs slightly (or by a lot) from country to country, and from time-frame to time-frame. Niether fact should be surprising, the former my be due to different countries having different regulations that may or may not prevent Airbnb from posting the same information regarding a listing. The latter makes sense as we would expect Airbnb to continue improving its business from year-to-year and change the information collected from a host and displayed on a listing.
+The data differs slightly (or by a lot) from country to country, and from time-frame to time-frame. Niether fact should be surprising, the former might be due to different countries having different regulations that may or may not prevent Airbnb from posting the same information regarding a listing. The latter makes sense as we would expect Airbnb to continue to improve its business from year-to-year and change the information collected from a listing and its host.
 
-If you have any issues with getting the data during the session, for any particular reason, you can come back to this README file and access all of the files using the link below.
+You can download all datasets using the following link.
 
-### [LINK to the Data]()
+Create a folder called `data` and add to it the folders in the following link using their respective names, `static` and `interactive`. Please make sure to add this new directory to the same folder you will be using for this tutorial.
 
-
+### [LINK to the Data](https://web.tresorit.com/l/pTEZI#2e_m49PCp-xo4GXs1C4xUQ)
 
 ## 7. Notebooks
 
-The tutorial is organized in the following notebooks. Notebooks 00 through 02 form the core of this tutorial, and are guaranteed to be covered throughout today's session. Anything beyond that will be treated as additional (fun) material that I hope you will find useful beyond today's session.
+The tutorial is contains a presentation and the following notebooks.
 
-- 00 Setting the Stage and Getting the Data
-- 01 Deep Cleaning
-- 02 Reshaping
-- 03 Analysing
-- 04 Building a Data Product
+- **00 Checking that we are ready to go** - This notebook includes a short suit of commands and visualisations to make sure you are ready to go with the rest of the tutorial
+- **01 Static Dashboards** - In this notebook we will cover how to decunstruct and put back together a static dashboard to share with friends and colleagues.
+- **02 Interactive Dashboars** - In this notebook, we will get a bit more technical and add interactive components to our dashboard as we deconstruct it and put it back together.
+- **03 Dashboard Deployment** - This notebook is all about how to create a small application with our dashboards.
+
+
 
 
 ## 8. Acknowledgements
 
-The work in this tutorial was made possible because of the many talented people who have invested valuable time and effort in building these great tools for the Python ecosystem. So many thanks to pandas, NumPy, and Dask teams. Also, many thanks to Garret Blankenship. Without his help, lesson 00 would have taken the entire 4 hours of the tutorial. Many thanks to Bianca Power, Maggie Liuzzi, Jairo Bilbao, Alex Holder, Michael Bamford, and Zeb Stevenson. Their comments and suggestions helped me polish the content of this tutorial significantly.
+The work in this tutorial was made possible because of the many talented people who have invested invaluable time and effort in building these great tools for the Python ecosystem. So many thanks to the pandas, NumPy, bokeh, HoloViz, and all others teams who I have not mentioned.
 
 ## 9. Additional Resources
 
-Here are a few great resources to get started with data analytics, large scale data analysis, and data science regardless if this was your first time learning some of the concepts and techniques in these fields.
+Here are a few great resources to get started with data analytics, data visualisation, and dashboard creation. The first three, in particular, have guided my thinking and helped very much polished the content you have found in this tutorial.
 
+- [Fundamentals of Data Visualisation](https://clauswilke.com/dataviz/) by Claus O. Wilke
+- [The Big Book of Dashboards](http://bigbookofdashboards.com/) by Steve Wexler, Jeffrey Shaffer, and Andy Cotgreave
 - [Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython](https://www.amazon.com/gp/product/1491957662/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=quantpytho-20&creative=9325&linkCode=as2&creativeASIN=1491957662&linkId=ea8de4253cce96046e8ab0383ac71b33) by Wes McKinney
-- [Data Science with Python and Dask](https://www.amazon.com/Data-Science-Scale-Python-Dask/dp/1617295604) by Jesse C. Daniel
-- [Data Science from Scratch](https://www.amazon.com/_/dp/1492041130?tag=oreilly20-20) by Joel Grus
-- [Python Machine Learning](https://www.packtpub.com/product/python-machine-learning-third-edition/9781789955750) by Sebastian Raschka
-- [Fast.ai Courses and Book](https://www.fast.ai/)
 
-## 10. Feedback (arigatōgozaimashita) 😃
+## 10. Feedback 😃
 
-If you could please help me make this tutorial a better one with your feedback, I would very much appreciate it.
+If you liked or disliked this tutorial and would like to give me your feedback so that I can improve it, I would greatly appreciate that.
 
-> # [Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLScBo_oOdrpmYztm-PzeSgXU6sbxSp-9dOJxXVg1Rd8EnSY9AQ/viewform?usp=sf_link)
+> # [Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSdktVFANUw0uTsjXXgUcR2zRIW7RYt0uC-0FWnr3V2nYoXfjQ/viewform?usp=sf_link)
