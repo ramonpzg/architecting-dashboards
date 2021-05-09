@@ -1,6 +1,6 @@
 data/
-notebooks
-testing
+notebooks/
+testing/
 domain_access.md
 .ipynb_checkpoints
 useful_code.py

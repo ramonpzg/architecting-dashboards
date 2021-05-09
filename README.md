@@ -149,6 +149,8 @@ Open a Jupyter Lab session inside the folder you just downloaded. You can do thi
 cd pycon21
 jupyter lab
 
+```
+
 Conversely, open a Jupyter Lab session anywhere you'd like and navigate to the folder you just downloaded.
 
 #### Third Step
