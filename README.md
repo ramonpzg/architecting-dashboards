@@ -120,7 +120,7 @@ conda env create -f environment.yml
 Then you will need to activate your environment using the following command.
 
 ```sh
-conda activate pycon21
+conda activate pycon-d4a
 ```
 
 #### Fourth Step
