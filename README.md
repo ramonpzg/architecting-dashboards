@@ -15,7 +15,6 @@ Welcome to Dashboards 4 All, a PyCon 2021 tutorial where we will be learning abo
 5. Presentation (link below)
 6. Data
 7. Notebooks
-    - ~~00 Quick DataViz Primer~~
     - 01 Static Dashboards
     - 02 Interactive Dashboars
     - 03 Dashboard Deployment

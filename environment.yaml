@@ -9,9 +9,8 @@ dependencies:
   - scipy
   - bokeh
   - seaborn
-  - jupyterlab=3.0.12
+  - jupyterlab
   - pandas
-  - pip
   - python=3.9
   - holoviews
   - param
@@ -20,7 +19,6 @@ dependencies:
   - datashader
   - nodejs
   - selenium
-  - geckodriver
   - geopandas
   - panel
   - shapely
@@ -28,20 +26,17 @@ dependencies:
   - param
   - iris
   - colorcet
-  - altair
   - geos
   - gdal
-  - contextily
-  - fiona
-  - flask
-  - geographiclib
-  - geopy
-  - itsdangerous
-  - mapclassify
-  - mercantile
-  - networkx
-  - pyarrow
-  - pyproj
-  - rasterio
-  - rtree
-  - tqdm
+  - pip:
+    - fiona
+    - flask
+    - geopandas
+    - geopy
+    - networkx
+    - pyarrow
+    - pyproj
+    - rasterio
+    - rtree
+    - tqdm
+    - contextily
