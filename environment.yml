@@ -1,0 +1,43 @@
+name: pycon-d4a
+channels:
+  - pyviz
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyter-panel-proxy
+  - numpy
+  - matplotlib
+  - scipy
+  - bokeh
+  - seaborn
+  - jupyterlab
+  - pandas
+  - python=3.9
+  - holoviews
+  - param
+  - hvplot
+  - geoviews-core
+  - datashader
+  - nodejs
+  - selenium
+  - geopandas
+  - panel
+  - shapely
+  - toolz
+  - param
+  - iris
+  - colorcet
+  - geos
+  - gdal
+  - pip:
+    - fiona
+    - flask
+    - geopandas
+    - geopy
+    - networkx
+    - pyarrow
+    - pyproj
+    - rasterio
+    - rtree
+    - tqdm
+    - contextily
