@@ -50,7 +50,7 @@ nps = pn.widgets.Select(value='Excellent', options=nps_vals)
 
 ################### Map ###################
 
-pn.depends(p_type.param.value)
+@pn.depends(p_type.param.value)
 def get_map(p_type, **kwargs):
     
     data = df[df['property_type'] == p_type].copy()
