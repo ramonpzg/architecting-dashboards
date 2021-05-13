@@ -22,7 +22,9 @@ Welcome to Dashboards 4 All, a PyCon 2021 tutorial where we will be learning abo
 9. Resources
 10. Feedback 😃
 
+Run this tutorial on Binder
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ramonprz01/pycon21-dashboards-4-all/master)
 
 ## 1. Outline for the Tutorial
 
