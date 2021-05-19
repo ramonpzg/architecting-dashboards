@@ -5,6 +5,7 @@ channels:
   - defaults
 dependencies:
   - jupyter-panel-proxy
+  - pip
   - numpy
   - matplotlib
   - scipy

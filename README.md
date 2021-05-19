@@ -100,7 +100,7 @@ Open up your terminal and navigate to a directory of your choosing in your compu
  git clone https://github.com/ramonprz01/pycon21-dashboards-4-all.git
 ```
 
-Conversely, you can click on the green `downlowad` button at the top and donwload all files to your desired folder/directory. Once you download it, unzip it and move on to the second step.
+Conversely, you can click on the green `download` button at the top and donwload all files to your desired folder/directory. Once you download it, unzip it and move on to the second step.
 
 #### Second Step
 
@@ -225,7 +225,6 @@ Create a folder called `data` and add to it the folders in the following link us
 
 The tutorial is contains a presentation and the following notebooks.
 
-- **00 Checking that we are ready to go** - This notebook includes a short suit of commands and visualisations to make sure you are ready to go with the rest of the tutorial
 - **01 Static Dashboards** - In this notebook we will cover how to decunstruct and put back together a static dashboard to share with friends and colleagues.
 - **02 Interactive Dashboars** - In this notebook, we will get a bit more technical and add interactive components to our dashboard as we deconstruct it and put it back together.
 - **03 Dashboard Deployment** - This notebook is all about how to create a small application with our dashboards.
