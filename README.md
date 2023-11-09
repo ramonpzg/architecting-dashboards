@@ -1,6 +1,6 @@
 # Dashboards 4 All
 
-## PyCon 2021
+# PyCon US 2021
 
 Welcome to Dashboards 4 All, a PyCon 2021 tutorial where we will be learning about how to deconstruct static and dynamic dashboards and put new ones together; how to save dashboards for the purpose of sharing them with colleagues and friends, and how to share our insights in a deployed version of our interactive dashboards.
 
