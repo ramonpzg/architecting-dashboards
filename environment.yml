@@ -4,6 +4,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - python=3.11
   - jupyter-panel-proxy
   - pip
   - numpy
@@ -13,7 +14,6 @@ dependencies:
   - seaborn
   - jupyterlab
   - pandas
-  - python=3.9
   - holoviews
   - param
   - hvplot
@@ -30,6 +30,8 @@ dependencies:
   - colorcet
   - geos
   - gdal
+  - firefox
+  - geckodriver
   - pip:
     - fiona
     - flask
@@ -42,3 +44,12 @@ dependencies:
     - rtree
     - tqdm
     - contextily
+    - jupyter_bokeh
+    - transformers
+    - "gradio<4.0"
+    - mlserver
+    - torch
+    - librosa
+    - pedalboard
+    - rich
+    - faker
