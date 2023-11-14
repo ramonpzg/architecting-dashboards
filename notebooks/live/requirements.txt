@@ -1,0 +1,10 @@
+gradio
+mlserver
+transformers
+ipykernel
+numpy
+ipywidgets
+torch
+faker
+pedalboard
+matplotlib
